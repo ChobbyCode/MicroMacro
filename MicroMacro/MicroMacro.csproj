@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KeySender\KeySender.csproj" />
+    <ProjectReference Include="..\MicroFileWriter\MicroFileWriter.csproj" />
     <ProjectReference Include="..\MicroUpdatorClient\MicroUpdatorClient.csproj" />
   </ItemGroup>
 

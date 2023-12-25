@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeySender", "KeySender\KeyS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroUpdatorClient", "MicroUpdatorClient\MicroUpdatorClient.csproj", "{232B7B5F-6148-4459-A13D-BB2D87CBA554}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroFileWriter", "MicroFileWriter\MicroFileWriter.csproj", "{9856A31A-8E60-4D15-B3AE-69832FDCC8F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9856A31A-8E60-4D15-B3AE-69832FDCC8F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9856A31A-8E60-4D15-B3AE-69832FDCC8F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9856A31A-8E60-4D15-B3AE-69832FDCC8F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9856A31A-8E60-4D15-B3AE-69832FDCC8F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

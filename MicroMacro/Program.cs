@@ -4,6 +4,7 @@ using System.Linq;
 using System;
 using MicroMacro;
 using MicroMacro.Menu;
+using MicroFileWriter;
 
 namespace MicroMacroConsole
 {
@@ -14,6 +15,10 @@ namespace MicroMacroConsole
         public static void Main(string[] args)
         {
             Console.Title = "MicroMacro v1.1.0 | Copyright (c) 2023 ChobbyCode";
+
+            // File Write Logic etc..
+            FileManager _fm = new FileManager();
+            _fm.InitializeApplication();
 
             MainRenderLoop();
         }
