@@ -1,4 +1,6 @@
-﻿using KeySender;
+﻿// Copyright (c) 2023 ChobbyCode
+
+using KeySender;
 using System;
 using System.Collections.Generic;
 using System.Linq;
