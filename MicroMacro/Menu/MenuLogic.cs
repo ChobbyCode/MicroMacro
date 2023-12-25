@@ -26,6 +26,8 @@ namespace MicroMacro.Menu
             {
                 case "x":
                     return Menu.ExitApplication;
+                case "1":
+                    return Menu.QuickMacro;
                 default:
                     return Menu.Home;
             }
