@@ -11,6 +11,8 @@ namespace MicroMacroConsole
         {
             Console.WriteLine("MicroMacro v1.0.0 based on https://github.com/ChobbyCode/MacroCreator");
             Console.WriteLine("Copyright (c) 2023 ChobbyCode");
+
+            Console.ReadLine();
         }
     }
 }
