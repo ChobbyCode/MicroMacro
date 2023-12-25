@@ -24,11 +24,43 @@ namespace KeySender
         {
             try
             {
+                // Uses the simulator to send the key
                 simulator.SimulateKey(key, isim);
             }
             catch
             {
                 Console.WriteLine($"Failed to send key - {key} -");
+            }
+        }
+
+        public void SendString(string text)
+        {
+            try
+            {
+                // Just loops through the text to send key
+                foreach(char c in text)
+                {
+                    SendKey(c);
+                }
+            }catch
+            {
+                Console.WriteLine($"Failed to send string - {text} -");
+            }
+        }
+        public void SendMultiString(string text, int repeat)
+        {
+            try
+            {
+                // Repeats as many times as it needs to
+                for(int i = 0; i < repeat; i++)
+                {
+                    // Just calls the send string function
+                    SendString(text);
+                }
+            }
+            catch
+            {
+                Console.WriteLine($"Failed to send string - {text} -");
             }
         }
     }

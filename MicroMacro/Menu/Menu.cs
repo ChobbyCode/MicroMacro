@@ -9,5 +9,7 @@ namespace MicroMacro.Menu
     public enum Menu
     {
         Home = 0,
+        ExitApplication = 1,
+        QuickMacro = 2,
     }
 }
