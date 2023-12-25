@@ -43,6 +43,7 @@ namespace KeySender
                 foreach(char c in text)
                 {
                     SendKey(c);
+                    Thread.Sleep(50);
                 }
             }catch
             {
