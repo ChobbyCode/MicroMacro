@@ -50,7 +50,7 @@ namespace MicroMacro.Menu
                         Console.WriteLine("Please enter a valid number");
                         return;
                     }
-                    Console.WriteLine("Please Wait 5 Seconds, for the string '{text}' to be repeated {repeat} times.");
+                    Console.WriteLine($"Please Wait 5 Seconds, for the string '{text}' to be repeated {repeat} times.");
                     Thread.Sleep(5000);
                     Sender Sender = new Sender();
                     Sender.SendMultiString(text, repeat);

@@ -18,4 +18,10 @@
     <ProjectReference Include="..\MicroUpdatorClient\MicroUpdatorClient.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Slide">
+      <HintPath>Slide\Slide.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
