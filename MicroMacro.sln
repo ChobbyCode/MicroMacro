@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34310.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroMacro", "MicroMacro\MicroMacro.csproj", "{49925296-1B95-4ED7-AE86-15ED26E07389}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMacro", "MicroMacro\MicroMacro.csproj", "{49925296-1B95-4ED7-AE86-15ED26E07389}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeySender", "KeySender\KeySender.csproj", "{08CDEBBD-5C40-430D-8C3C-DB94408D766F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeySender", "KeySender\KeySender.csproj", "{08CDEBBD-5C40-430D-8C3C-DB94408D766F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroUpdatorClient", "MicroUpdatorClient\MicroUpdatorClient.csproj", "{232B7B5F-6148-4459-A13D-BB2D87CBA554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{08CDEBBD-5C40-430D-8C3C-DB94408D766F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08CDEBBD-5C40-430D-8C3C-DB94408D766F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08CDEBBD-5C40-430D-8C3C-DB94408D766F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

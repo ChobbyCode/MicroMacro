@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="InputSimulatorPlus" Version="1.0.7" />
-    <PackageReference Include="Update_Checker" Version="0.3.0-SR2" />
-  </ItemGroup>
-
 </Project>

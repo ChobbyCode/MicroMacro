@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Update_Checker" Version="0.3.0-SR2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\KeySender\KeySender.csproj" />
+    <ProjectReference Include="..\MicroUpdatorClient\MicroUpdatorClient.csproj" />
   </ItemGroup>
 
 </Project>
