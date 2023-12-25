@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeySender", "KeySender\KeyS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroUpdatorClient", "MicroUpdatorClient\MicroUpdatorClient.csproj", "{232B7B5F-6148-4459-A13D-BB2D87CBA554}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCacheManager", "MicroCacheManager\MicroCacheManager.csproj", "{841E938C-776B-436C-90E5-2F5F0D14CF4B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{232B7B5F-6148-4459-A13D-BB2D87CBA554}.Release|Any CPU.Build.0 = Release|Any CPU
-		{841E938C-776B-436C-90E5-2F5F0D14CF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{841E938C-776B-436C-90E5-2F5F0D14CF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{841E938C-776B-436C-90E5-2F5F0D14CF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{841E938C-776B-436C-90E5-2F5F0D14CF4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
