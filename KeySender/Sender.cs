@@ -10,18 +10,21 @@ namespace KeySender
     public class Sender
     {
         InputSimulator isim;
+        SimulatorCaller simulator;
 
         public Sender()
         {
             // Sets up the Input Simulator for use
             isim = new InputSimulator();
+            // We pass the isim into the caller as this does it
+            simulator = new SimulatorCaller();
         }
 
-        public void SendKey(string key)
+        public void SendKey(char key)
         {
             try
             {
-
+                simulator.SimulateKey(key, isim);
             }
             catch
             {
