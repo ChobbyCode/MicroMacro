@@ -13,5 +13,6 @@ namespace MicroMacro.Menu
         Home = 0,
         ExitApplication = 1,
         QuickMacro = 2,
+        Changelog = 3,
     }
 }

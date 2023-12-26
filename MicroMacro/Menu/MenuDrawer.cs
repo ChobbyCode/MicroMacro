@@ -55,6 +55,19 @@ namespace MicroMacro.Menu
                     Sender Sender = new Sender();
                     Sender.SendMultiString(text, repeat);
                     break;
+                case Menu.Changelog:
+                    Console.WriteLine("");
+                    Console.WriteLine("---Changelog for v1.1.0---");
+                    Console.WriteLine("");
+                    Console.WriteLine("- Ported Application from MacroCreator v1.0.0 (archieved)");
+                    Console.WriteLine("- Legacy Features appear as red");
+                    Console.WriteLine("- Settings");
+                    Console.WriteLine("- Dedicated Installer");
+                    Console.WriteLine("");
+                    Console.WriteLine("Credits: ChobbyCode");
+                    Console.WriteLine("Copyright (c) 2023 ChobbyCode");
+                    Console.WriteLine("");
+                    break;
             }
         }
     }

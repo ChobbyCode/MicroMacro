@@ -30,6 +30,8 @@ namespace MicroMacro.Menu
                     return Menu.ExitApplication;
                 case "1":
                     return Menu.QuickMacro;
+                case "6":
+                    return Menu.Changelog; 
                 default:
                     return Menu.Home;
             }

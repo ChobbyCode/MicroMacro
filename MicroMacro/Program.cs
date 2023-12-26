@@ -4,21 +4,20 @@ using System.Linq;
 using System;
 using MicroMacro;
 using MicroMacro.Menu;
-using MicroFileWriter;
+using MicroFileWriter.Settings;
 
 namespace MicroMacroConsole
 {
     public class Program
     {
         public static Menu Menu = 0;
+        public static string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
 
         public static void Main(string[] args)
         {
             Console.Title = "MicroMacro v1.1.0 | Copyright (c) 2023 ChobbyCode";
 
-            // File Write Logic etc..
-            FileManager _fm = new FileManager();
-            _fm.InitializeApplication();
+            SettingsManager settingsManager = new SettingsManager();
 
             MainRenderLoop();
         }
