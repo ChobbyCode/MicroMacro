@@ -59,6 +59,7 @@ namespace KeySender
                 {
                     // Just calls the send string function
                     SendString(text);
+                    isim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                 }
             }
             catch
