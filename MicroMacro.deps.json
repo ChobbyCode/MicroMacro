@@ -60,6 +60,7 @@
       "KeySender/1.0.0": {
         "dependencies": {
           "InputSimulatorPlus": "1.0.7",
+          "MicroFileWriter": "1.0.0",
           "Update_Checker": "0.3.0-SR2"
         },
         "runtime": {
