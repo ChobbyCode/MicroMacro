@@ -68,6 +68,9 @@ namespace MicroMacro.Menu
                     Console.WriteLine("Copyright (c) 2023 ChobbyCode");
                     Console.WriteLine("");
                     break;
+                case Menu.SettingsMSG:
+                    Console.WriteLine("Please Restart The Application After Modifying The Settings File, For Changes To Take Place.");
+                    break;
             }
         }
     }

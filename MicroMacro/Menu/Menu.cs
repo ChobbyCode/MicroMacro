@@ -14,5 +14,6 @@ namespace MicroMacro.Menu
         ExitApplication = 1,
         QuickMacro = 2,
         Changelog = 3,
+        SettingsMSG = 4,
     }
 }

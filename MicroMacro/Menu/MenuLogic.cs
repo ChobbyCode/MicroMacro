@@ -33,7 +33,7 @@ namespace MicroMacro.Menu
                     return Menu.QuickMacro;
                 case "5":
                     Process.Start("notepad.exe", $"{MicroFileWriter.Settings.SettingsManager.SettingsLocation}");
-                    return Menu.Home;
+                    return Menu.SettingsMSG;
                 case "6":
                     return Menu.Changelog; 
                 default:
