@@ -1,5 +1,6 @@
 ﻿
 using IWshRuntimeLibrary;
+using MicroMacroInstaller;
 using System.Diagnostics;
 
 namespace MicroMacro.Installer
@@ -17,6 +18,11 @@ namespace MicroMacro.Installer
                     Directory.CreateDirectory(installDrive + @"\Program Files\MicroMacro\");
                 bool _dS = AskDesktopShortcut();
                 bool _sS = AskStartMenuShortcut();
+
+                // Download Latest Versions
+                FileDownloader fd = new FileDownloader();
+                fd.DownloadFiles();
+
                 InstallApp(installDrive + @"\Program Files\MicroMacro\");
 
                 if (_dS)
