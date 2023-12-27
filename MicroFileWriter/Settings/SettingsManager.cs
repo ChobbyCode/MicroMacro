@@ -12,10 +12,27 @@ namespace MicroFileWriter.Settings
     public class SettingsManager
     {
         public static string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
+        public static Models.Settings Settings = new Models.Settings();
 
         public SettingsManager()
         {
             if(!File.Exists(BaseDir + @"\Settings\config.json")) SetupSettings();
+            Settings = ReadSettings();
+        }
+
+        private Models.Settings ReadSettings()
+        {
+            try
+            {
+                string file = File.ReadAllText(BaseDir + @"\Settings\config.json");
+
+                return JsonConvert.DeserializeObject<Models.Settings>(file);
+            }
+            catch
+            {
+                Console.WriteLine("An Error Occurred Reading The Settings File");
+                return new Models.Settings();
+            }
         }
 
         private void SetupSettings()
