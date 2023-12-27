@@ -1,4 +1,5 @@
-﻿
+﻿// Copyright (c) 2023 ChobbyCode
+
 using IWshRuntimeLibrary;
 using MicroMacroInstaller;
 using System.Diagnostics;

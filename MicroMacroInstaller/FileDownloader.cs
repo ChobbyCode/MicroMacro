@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) 2023 ChobbyCode
+
+using System;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;

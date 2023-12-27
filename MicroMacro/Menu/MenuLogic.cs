@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,9 @@ namespace MicroMacro.Menu
                     return Menu.ExitApplication;
                 case "1":
                     return Menu.QuickMacro;
+                case "5":
+                    Process.Start("notepad.exe", $"{MicroFileWriter.Settings.SettingsManager.SettingsLocation}");
+                    return Menu.Home;
                 case "6":
                     return Menu.Changelog; 
                 default:

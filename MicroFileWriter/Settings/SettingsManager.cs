@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) 2023 ChobbyCode
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -12,11 +14,13 @@ namespace MicroFileWriter.Settings
     public class SettingsManager
     {
         public static string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
+        public static string SettingsLocation = String.Empty;
         public static Models.Settings Settings = new Models.Settings();
 
         public SettingsManager()
         {
-            if(!File.Exists(BaseDir + @"\Settings\config.json")) SetupSettings();
+            SettingsLocation = BaseDir + @"\Settings\config.json";
+            if (!File.Exists(BaseDir + @"\Settings\config.json")) SetupSettings();
             Settings = ReadSettings();
         }
 
