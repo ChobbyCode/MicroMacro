@@ -59,7 +59,7 @@ namespace KeySender
                 {
                     // Just calls the send string function
                     SendString(text);
-                    isim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                    if(MicroFileWriter.Settings.SettingsManager.Settings.MacroAutoEnter) isim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                 }
             }
             catch

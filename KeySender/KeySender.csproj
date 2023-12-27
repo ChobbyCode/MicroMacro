@@ -11,4 +11,8 @@
     <PackageReference Include="Update_Checker" Version="0.3.0-SR2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MicroFileWriter\MicroFileWriter.csproj" />
+  </ItemGroup>
+
 </Project>
