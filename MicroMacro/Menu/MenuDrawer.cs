@@ -72,7 +72,7 @@ namespace MicroMacro.Menu
                     Console.WriteLine("- Settings");
                     Console.WriteLine("- Dedicated Installer");
                     Console.WriteLine("");
-                    Console.WriteLine("Credits: ChobbyCode");
+                    Console.WriteLine("Credits: Programming: ChobbyCode");
                     Console.WriteLine("Copyright (c) 2023 ChobbyCode");
                     Console.WriteLine("");
                     break;
