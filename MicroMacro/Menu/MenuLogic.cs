@@ -14,10 +14,12 @@ namespace MicroMacro.Menu
         public static Menu GetNewMenu(Menu menu, string? input)
         {
             if (input == null) return Menu.Home;
-            switch(menu)
+            switch (menu)
             {
                 case Menu.Home:
                     return HomeMenuLogic(input);
+                case Menu.SmartMacroHome:
+                    return SmartMacroMenuLogic(input);
                 default:
                     return Menu.Home;
             }
@@ -25,17 +27,30 @@ namespace MicroMacro.Menu
 
         private static Menu HomeMenuLogic(string input)
         {
-            switch(input.ToLower())
+            switch (input.ToLower())
             {
                 case "x":
                     return Menu.ExitApplication;
                 case "1":
                     return Menu.QuickMacro;
+                case "2":
+                    return Menu.SmartMacroHome;
                 case "5":
                     Process.Start("notepad.exe", $"{MicroFileWriter.Settings.SettingsManager.SettingsLocation}");
                     return Menu.SettingsMSG;
                 case "6":
-                    return Menu.Changelog; 
+                    return Menu.Changelog;
+                default:
+                    return Menu.Home;
+            }
+        }
+
+        private static Menu SmartMacroMenuLogic(string input)
+        {
+            switch(input.ToLower())
+            {
+                case "1":
+                    return Menu.SmartMacroCreate;
                 default:
                     return Menu.Home;
             }

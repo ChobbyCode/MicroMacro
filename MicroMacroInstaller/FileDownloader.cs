@@ -1,5 +1,6 @@
 ﻿// Copyright (c) 2023 ChobbyCode
 
+using MicroMacro.Installer;
 using System;
 using System.Collections.Generic;
 using System.IO.Compression;
@@ -24,10 +25,10 @@ namespace MicroMacroInstaller
             if (!Directory.Exists(baseDir + @"\tmp\dez")) Directory.CreateDirectory(baseDir + @"\tmp\dez");
             if (!Directory.Exists(baseDir + @"\Files\")) Directory.CreateDirectory(baseDir + @"\Files\");
 
-
             string path = "https://github.com/ChobbyCode/MicroMacro" + @"/zipball/InstallerFiles";
+            if (Program.isBeta) path = "https://github.com/ChobbyCode/MicroMacro" + @"/zipball/BetaFiles";
 
-            Console.WriteLine("Downloading Latest Version: ");
+                Console.WriteLine("Downloading Latest Version: ");
             Console.Write("Fetching Files From: ");
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(path);

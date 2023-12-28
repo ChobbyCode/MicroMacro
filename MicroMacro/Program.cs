@@ -7,6 +7,8 @@ using MicroMacro.Menu;
 using MicroFileWriter.Settings;
 using MicroUpdatorClient;
 using System.Diagnostics;
+using Microsoft.Win32;
+using System.Reflection;
 
 namespace MicroMacroConsole
 {
@@ -15,17 +17,22 @@ namespace MicroMacroConsole
         public static Menu Menu = 0;
         public static string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
 
-        public static string Version = "v1.1.2";
+        public static string Version = "v1.2.0";
+        public static bool isBeta = true;
 
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.Title = $"MicroMacro {Version} | Copyright (c) 2023 ChobbyCode";
 
             SettingsManager settingsManager = new SettingsManager();
 
-            Console.WriteLine("Checking for updates...");
-            Updator _uD = new Updator();
-            bool update = _uD.CheckForUpdates();
+            bool update = false;
+            if (!isBeta)
+            {
+                Console.WriteLine("Checking for updates...");
+                Updator _uD = new Updator();
+                update = _uD.CheckForUpdates();
+            }
 
             if (!update) MainRenderLoop();
             else

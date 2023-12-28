@@ -8,20 +8,23 @@ namespace MicroMacro.Installer
 {
     public class Program
     {
+
+        public static bool isBeta = true;
+
         public static void Main(string[] args)
         {
+            Console.Clear();
+            Console.Title = "MicroMacro Updater";
+
             try
             {
-                Console.Clear();
-                Console.Title = "MicroMacro Updater";
-
-                if (args == null) UserInstall(); 
-                else AutoUpdate(args[1]);
+                if (args[0] == "true") AutoUpdate(args[1]);
             }
-            catch
+            catch (Exception ex)
             {
-                
+                UserInstall();
             }
+            Console.ReadLine();
         }
 
         public static void AutoUpdate(string installDrive)
@@ -176,12 +179,29 @@ namespace MicroMacro.Installer
             Console.WriteLine("Copying Files...");
             string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\Files\");
 
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine($"Status            | File");
+            Console.ForegroundColor = ConsoleColor.White;
             foreach (string file in files)
             {
                 FileInfo fI = new FileInfo(file);
-                System.IO.File.Copy(file, loc + @"\" + fI.Name, true);
+                try
+                {
+                    System.IO.File.Copy(file, loc + @"\" + fI.Name, true);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Copy Item Success | {fI.Name}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Copy Item Failed  | {fI.Name}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
-            Console.WriteLine("Installation Complete. You Can Now Close This Window.");
+            Console.WriteLine("Installation Complete.");
+            Console.WriteLine("You can now either, click enter to automatically open the application, or close this window.");
+            Console.ReadLine();
             Process.Start(loc + @"\MicroMacro.exe");
         }
 

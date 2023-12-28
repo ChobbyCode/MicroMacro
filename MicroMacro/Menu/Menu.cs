@@ -15,5 +15,11 @@ namespace MicroMacro.Menu
         QuickMacro = 2,
         Changelog = 3,
         SettingsMSG = 4,
+
+        // Smart Macro
+
+        SmartMacroHome = 5,
+        SmartMacroCreate = 5,
+        SmartMacroRun = 5,
     }
 }

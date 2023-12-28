@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MicroMacro;
+using MicroMacroConsole;
 
 namespace MicroMacro.Menu
 {
@@ -17,17 +18,13 @@ namespace MicroMacro.Menu
             switch(Menu)
             {
                 case 0:
-                    Console.WriteLine("MicroMacro v1.1.2 based on https://github.com/ChobbyCode/MacroCreator");
+                    Console.WriteLine($"MicroMacro {Program.Version} based on https://github.com/ChobbyCode/MacroCreator");
                     Console.WriteLine("Copyright (c) 2023 ChobbyCode");
                     Console.WriteLine();
                     Console.WriteLine("---Macros---");
                     Console.WriteLine();
                     Console.WriteLine("(1) - Quick Macro");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("[Legacy Feature] (2) - Run a .mc File");
-                    Console.WriteLine("[Legacy Feature] (3) - Create a .mc File");
-                    Console.WriteLine("[Legacy Feature] (4) - Supported Application Settings & Supported Application Presets(.mc) ");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("(2) - Smart Macro");
                     Console.WriteLine();
                     Console.WriteLine("---Settings & Other---");
                     Console.WriteLine();
@@ -37,7 +34,7 @@ namespace MicroMacro.Menu
                     Console.WriteLine();
                     break;
                 case Menu.QuickMacro:
-                    Console.WriteLine("Please Note v1.1.0 MicroMacro is a port of v1.0.0 MacroCreator, they don't have the same features.");
+                    Console.WriteLine($"Please Note {Program.Version} MicroMacro is a port of v1.0.0 MacroCreator, they don't have the same features.");
                     Console.WriteLine();
                     Console.Write("Macro Text: ");
                     var text = Console.ReadLine();
@@ -81,6 +78,14 @@ namespace MicroMacro.Menu
                     break;
                 case Menu.SettingsMSG:
                     Console.WriteLine("Please Restart The Application After Modifying The Settings File, For Changes To Take Place.");
+                    break;
+                case Menu.SmartMacroHome:
+                    Console.WriteLine();
+                    Console.WriteLine("---Smart Macro---");
+                    Console.WriteLine();
+                    Console.WriteLine("(1) - Create New Smart Macro");
+                    Console.WriteLine("(2) - Run Smart Macro");
+                    Console.WriteLine();
                     break;
             }
         }
