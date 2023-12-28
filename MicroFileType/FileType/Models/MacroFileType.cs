@@ -9,6 +9,6 @@ namespace MicroFileType.FileType
 
         public string StartDelay { get; set; } = "5000";
 
-        public List<IndividualMacro> Macros { get; set; }
+        public List<IndividualMacro> Macros { get; set; } = new List<IndividualMacro>();
     }
 }

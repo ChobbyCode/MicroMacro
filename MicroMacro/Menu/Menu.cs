@@ -19,7 +19,7 @@ namespace MicroMacro.Menu
         // Smart Macro
 
         SmartMacroHome = 5,
-        SmartMacroCreate = 5,
-        SmartMacroRun = 5,
+        SmartMacroCreate = 6,
+        SmartMacroRun = 7,
     }
 }

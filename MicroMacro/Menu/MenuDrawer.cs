@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MicroMacro;
 using MicroMacroConsole;
+using MicroFileType.FileType;
 
 namespace MicroMacro.Menu
 {
@@ -86,6 +87,10 @@ namespace MicroMacro.Menu
                     Console.WriteLine("(1) - Create New Smart Macro");
                     Console.WriteLine("(2) - Run Smart Macro");
                     Console.WriteLine();
+                    break;
+                case Menu.SmartMacroCreate:
+                    MicroFileType.FileType.CreateMacro _cM = new MicroFileType.FileType.CreateMacro();
+                    _cM.OpenCreateMacroWindow();
                     break;
             }
         }
