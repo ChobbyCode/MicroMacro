@@ -1,5 +1,11 @@
 ﻿
 
+using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Reflection.Metadata;
+using System.Text.Json;
+
 namespace MicroFileType.FileType
 {
     public class CreateMacro
@@ -18,6 +24,9 @@ namespace MicroFileType.FileType
 
         public void OpenCreateMacroWindow()
         {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            if (!Directory.Exists(baseDir + @"\Macros\")) Directory.CreateDirectory(baseDir + @"\Macros\");
+
             bool exit = false;
             while(!exit)
             {
@@ -25,6 +34,45 @@ namespace MicroFileType.FileType
                 string input = Console.ReadLine();
                 if (input.ToLower() == "x") exit = true;
                 ProcessInput(input);
+            }
+            // Save
+            SaveFile();
+        }
+
+        private void SaveFile()
+        {
+            try
+            {
+                // Convert Json
+                string content = JsonConvert.SerializeObject(_OpenMacro, Formatting.Indented);
+
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+
+                DateTime Time = DateTime.Now;
+
+                string path = @$"{baseDir}\Macros\{Time.Day}-{Time.Month}-{Time.Year}-{Time.Hour}-{Time.Minute}-{Time.Second}.json.macro";
+
+                FileStream _fs = new(path, FileMode.CreateNew);
+                _fs.Close();
+
+                StreamWriter _sw = new(path);
+                try
+                {
+                    _sw.WriteAsync(content);
+                }
+                catch
+                {
+                    Console.WriteLine("Failed To Save File!");
+                    Console.ReadLine();
+                }
+                finally
+                {
+                    _sw.Close();
+                }
+            }catch (Exception ex)
+            {
+                Console.WriteLine("Failed To Save File!");
+                Console.ReadLine();
             }
         }
 

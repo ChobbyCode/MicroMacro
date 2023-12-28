@@ -50,7 +50,9 @@ namespace MicroMacro.Menu
             switch(input.ToLower())
             {
                 case "1":
-                    return Menu.SmartMacroCreate;
+                    MicroFileType.FileType.CreateMacro _cM = new MicroFileType.FileType.CreateMacro();
+                    _cM.OpenCreateMacroWindow();
+                    return Menu.SmartMacroHome;
                 default:
                     return Menu.Home;
             }

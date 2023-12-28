@@ -89,8 +89,7 @@ namespace MicroMacro.Menu
                     Console.WriteLine();
                     break;
                 case Menu.SmartMacroCreate:
-                    MicroFileType.FileType.CreateMacro _cM = new MicroFileType.FileType.CreateMacro();
-                    _cM.OpenCreateMacroWindow();
+                    
                     break;
             }
         }
