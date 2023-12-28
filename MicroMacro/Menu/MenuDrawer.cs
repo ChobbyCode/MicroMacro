@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MicroMacro;
 
 namespace MicroMacro.Menu
 {
@@ -16,7 +17,7 @@ namespace MicroMacro.Menu
             switch(Menu)
             {
                 case 0:
-                    Console.WriteLine("MicroMacro v1.1.1 based on https://github.com/ChobbyCode/MacroCreator");
+                    Console.WriteLine("MicroMacro v1.1.2 based on https://github.com/ChobbyCode/MacroCreator");
                     Console.WriteLine("Copyright (c) 2023 ChobbyCode");
                     Console.WriteLine();
                     Console.WriteLine("---Macros---");
@@ -56,6 +57,11 @@ namespace MicroMacro.Menu
                     Sender.SendMultiString(text, repeat);
                     break;
                 case Menu.Changelog:
+                    Console.WriteLine("");
+                    Console.WriteLine("---Changelog for v1.1.2---");
+                    Console.WriteLine("");
+                    Console.WriteLine("- The application can update on its own");
+                    Console.WriteLine("");
                     Console.WriteLine("");
                     Console.WriteLine("---Changelog for v1.1.1---");
                     Console.WriteLine("");
