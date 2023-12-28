@@ -23,6 +23,7 @@ namespace MicroMacroConsole
         public static void Main(string[] args)
         {
             Console.Title = $"MicroMacro {Version} | Copyright (c) 2023 ChobbyCode";
+            AddAsSuggestedApp();
 
             SettingsManager settingsManager = new SettingsManager();
 
@@ -57,6 +58,19 @@ namespace MicroMacroConsole
             }
         }
 
+        public static void AddAsSuggestedApp()
+        {
+            // Adds as a suggested popup for the .macro extension when people click on open with for .macro
+            var Key = Registry.ClassesRoot.OpenSubKey(".macro");
+            var Type = Key.GetValue("");
+            String myExecutable = Assembly.GetEntryAssembly().Location;
+            String command = "\"" + myExecutable + "\"" + " \"%1\"";
+            String keyName = Type + @"\shell\Open\command";
+            using (var key = Registry.ClassesRoot.CreateSubKey(keyName))
+            {
+                key.SetValue("", command);
+            }
+        }
 
         public static void MainRenderLoop()
         {
