@@ -16,7 +16,7 @@ namespace MicroMacro.Menu
             switch(Menu)
             {
                 case 0:
-                    Console.WriteLine("MicroMacro v1.1.0 based on https://github.com/ChobbyCode/MacroCreator");
+                    Console.WriteLine("MicroMacro v1.1.1 based on https://github.com/ChobbyCode/MacroCreator");
                     Console.WriteLine("Copyright (c) 2023 ChobbyCode");
                     Console.WriteLine();
                     Console.WriteLine("---Macros---");
@@ -56,6 +56,11 @@ namespace MicroMacro.Menu
                     Sender.SendMultiString(text, repeat);
                     break;
                 case Menu.Changelog:
+                    Console.WriteLine("");
+                    Console.WriteLine("---Changelog for v1.1.1---");
+                    Console.WriteLine("");
+                    Console.WriteLine("- Settings Button Opens The Settings File");
+                    Console.WriteLine("");
                     Console.WriteLine("");
                     Console.WriteLine("---Changelog for v1.1.0---");
                     Console.WriteLine("");
