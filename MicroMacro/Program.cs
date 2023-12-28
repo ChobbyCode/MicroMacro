@@ -9,6 +9,8 @@ using MicroUpdatorClient;
 using System.Diagnostics;
 using Microsoft.Win32;
 using System.Reflection;
+using MicroFileType.FileType;
+using Newtonsoft.Json;
 
 namespace MicroMacroConsole
 {
@@ -22,38 +24,59 @@ namespace MicroMacroConsole
 
         public static void Main(string[] args)
         {
-            Console.Title = $"MicroMacro {Version} | Copyright (c) 2023 ChobbyCode";
-            AddAsSuggestedApp();
-
-            SettingsManager settingsManager = new SettingsManager();
-
-            bool update = false;
-            if (!isBeta)
+            try
             {
-                Console.WriteLine("Checking for updates...");
-                Updator _uD = new Updator();
-                update = _uD.CheckForUpdates();
-            }
+                FileInfo _fI = new FileInfo(args[0]);
 
-            if (!update) MainRenderLoop();
-            else
-            {
-                try
+                if (_fI.Extension == ".macro")
                 {
-                    string[] UdArgs =
+                    string text = File.ReadAllText(_fI.FullName);
+                    MacroFileType MFT = JsonConvert.DeserializeObject<MacroFileType>(text);
+
+                    MicroFileType.FileType.CreateMacro _cM = new MicroFileType.FileType.CreateMacro(MFT);
+                    _cM.OpenCreateMacroWindow();
+                }
+                else
+                {
+
+                }
+                Console.ReadLine();
+            }
+            catch (Exception ex) 
+            {
+                Console.Title = $"MicroMacro {Version} | Copyright (c) 2023 ChobbyCode";
+                AddAsSuggestedApp();
+
+                SettingsManager settingsManager = new SettingsManager();
+
+                bool update = false;
+                if (!isBeta)
+                {
+                    Console.WriteLine("Checking for updates...");
+                    Updator _uD = new Updator();
+                    update = _uD.CheckForUpdates();
+                }
+
+                if (!update) MainRenderLoop();
+                else
+                {
+                    try
                     {
+                        string[] UdArgs =
+                        {
                         "true",
                         BaseDir,
                     };
-                    Process.Start(BaseDir + @"\Updator.exe", UdArgs);
-                }
-                catch
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Failed to start updater..");
-                    Console.WriteLine("Please manually download the update from: ");
-                    Console.WriteLine("https://github.com/ChobbyCode/MicroMacro/releases/tag/MicroMacro-Installer");
-                    Console.ReadLine();
+                        Process.Start(BaseDir + @"\Updator.exe", UdArgs);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("");
+                        Console.WriteLine("Failed to start updater..");
+                        Console.WriteLine("Please manually download the update from: ");
+                        Console.WriteLine("https://github.com/ChobbyCode/MicroMacro/releases/tag/MicroMacro-Installer");
+                        Console.ReadLine();
+                    }
                 }
             }
         }
