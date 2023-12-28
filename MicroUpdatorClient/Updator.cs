@@ -6,7 +6,7 @@ namespace MicroUpdatorClient
 {
     public class Updator
     {
-        public static int AppVersion = 1;
+        public static int AppVersion = 3;
 
         public bool CheckForUpdates()
         {

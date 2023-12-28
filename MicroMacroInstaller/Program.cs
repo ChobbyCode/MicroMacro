@@ -10,11 +10,18 @@ namespace MicroMacro.Installer
     {
         public static void Main(string[] args)
         {
-            Console.Clear();
-            Console.Title = "MicroMacro Updater";
+            try
+            {
+                Console.Clear();
+                Console.Title = "MicroMacro Updater";
 
-            if (args[0] == "true") AutoUpdate(args[1]);
-            else UserInstall();
+                if (args == null) UserInstall(); 
+                else AutoUpdate(args[1]);
+            }
+            catch
+            {
+                
+            }
         }
 
         public static void AutoUpdate(string installDrive)
