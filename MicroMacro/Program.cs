@@ -26,7 +26,6 @@ namespace MicroMacroConsole
         {
             
             Console.Title = $"MicroMacro {Version} | Copyright (c) 2023 ChobbyCode";
-            AddAsSuggestedApp();
 
             SettingsManager settingsManager = new SettingsManager();
 
