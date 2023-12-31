@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,89 @@ namespace MicroFileType.FileType
 {
     public class OpenMacro
     {
+        public bool ShowRecoveryFile = false;
+
         public void OpenOpenMacroWindow()
         {
             bool valid = false;
             while (!valid)
             {
                 RenderWindow();
-                Console.ReadLine();
+                string? input = Console.ReadLine();
+                if (input == "x") valid = true;
+                if (input == "y")
+                {
+                    if (ShowRecoveryFile) ShowRecoveryFile = false;
+                    else ShowRecoveryFile = true;
+                }
+                ProcessInput(input);
             }
         }
 
-        public void RenderWindow()
+        private bool ProcessInput(string? input)
+        {
+            if (input == null) return false;
+            try
+            {
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string[] Recent = Directory.GetFiles(baseDir + @"\Macros\");
+                string[] Recovery = Directory.GetFiles(baseDir + @"\Macros\tmp\");
+
+                int inputI = Convert.ToInt32(input);
+                if (inputI > Recent.Length + Recovery.Length) return false;
+                if (inputI > Recent.Length) RecoverySelect(inputI - Recent.Length);
+                if (inputI < Recent.Length + 1) RecentSelect(inputI - Recovery.Length);
+
+                return false;
+            }catch (Exception ex)
+            {
+                Console.WriteLine("Invalid Input:");
+                return false;
+            }
+        }
+
+        private void RecentSelect(int input)
+        {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string[] Recent = Directory.GetFiles(baseDir + @"\Macros\");
+            string[] Recovery = Directory.GetFiles(baseDir + @"\Macros\tmp\");
+
+            // Read File
+            FileInfo _fI = new FileInfo(Recent[input]);
+            String file = File.ReadAllText(_fI.FullName);
+
+            // Deserialize Object
+            MacroFileType MFT = JsonConvert.DeserializeObject<MacroFileType>(file);
+
+            bool valid = false;
+            string option = String.Empty;
+
+            while (!valid)
+            {
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("(1) - Run Macro");
+                Console.WriteLine("(2) - Edit Macro");
+                Console.WriteLine("");
+                Console.WriteLine("(x) - Return");
+
+                option = Console.ReadLine();
+                if(option == "1" || option == "2" || option == "x") valid = true;
+            }
+            if (option == "x") return;
+            if (option == "2")
+            {
+                CreateMacro _cM = new CreateMacro(MFT, _fI);
+                _cM.OpenCreateMacroWindow();
+            }
+        }
+
+        private void RecoverySelect(int input)
+        {
+
+        }
+
+        private void RenderWindow()
         {
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -32,6 +105,8 @@ namespace MicroFileType.FileType
                 Console.WriteLine("Please create a macro before opening one.");
             }
 
+            int h = 0; // loop plus recent
+
             if (Recent.Length >= 1)
             {
                 Console.WriteLine();
@@ -41,7 +116,8 @@ namespace MicroFileType.FileType
                 for (int i = 0; i < Recent.Length; i++)
                 {
                     FileInfo _fI = new FileInfo(Recent[i]);
-                    Console.WriteLine($"({i}) - {_fI.Name}");
+                    Console.WriteLine($"({i + 1}) - {_fI.Name}");
+                    h = i + 1;
                 }
             }
 
@@ -51,15 +127,23 @@ namespace MicroFileType.FileType
                 Console.WriteLine("---Recovery---");
                 Console.WriteLine();
 
-                for (int i = 0; i < Recovery.Length; i++)
+                if (ShowRecoveryFile == true) 
                 {
-                    FileInfo _fI = new FileInfo(Recovery[i]);
-                    Console.WriteLine($"({i}) - {_fI.Name}");
+                    for (int i = 0; i < Recovery.Length; i++)
+                    {
+                        FileInfo _fI = new FileInfo(Recovery[i]);
+                        Console.WriteLine($"({i + h + 1}) - {_fI.Name}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("There are recovery files available...");
                 }
             }
 
             Console.WriteLine();
             Console.WriteLine("(x) - Return");
+            if (Recovery.Length >= 1) Console.WriteLine("(y) - Toggle ShowRecoveryFiles");
             Console.WriteLine();
         }
     }

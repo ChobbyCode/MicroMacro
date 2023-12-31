@@ -11,10 +11,12 @@ namespace MicroFileType.FileType
     public class CreateMacro
     {
         public MacroFileType _OpenMacro { get; set; }
+        private FileInfo? FileInfo = null;
 
-        public CreateMacro(MacroFileType _om)
+        public CreateMacro(MacroFileType _om, FileInfo _fI)
         {
             _OpenMacro = _om;
+            FileInfo = _fI;
         }
 
         public CreateMacro()
@@ -37,7 +39,11 @@ namespace MicroFileType.FileType
                 ProcessInput(input);
             }
 
-            Exit();
+            if (FileInfo == null) Exit();
+            else
+            {
+                SaveFile(false, String.Empty, FileInfo);
+            }
         }
 
         private void Exit()
@@ -54,17 +60,17 @@ namespace MicroFileType.FileType
                     Console.Clear();
                     Console.Write("What would you like to call the macro?: ");
                     input = Console.ReadLine();
-                    SaveFile(false, input);
+                    SaveFile(false, input, null);
                     valid = true;
                 } else if (input.ToLower() == "n")
                 {
-                    SaveFile(true, "");
+                    SaveFile(true, "", null);
                     valid = true;
                 }
             }
         }
 
-        private void SaveFile(bool temp, string name)
+        private void SaveFile(bool temp, string name, FileInfo? _fI)
         {
             try
             {
@@ -78,22 +84,42 @@ namespace MicroFileType.FileType
                 string path = @$"{baseDir}\Macros\{name}.json.macro";
                 if(temp) path = @$"{baseDir}\Macros\tmp\{Time.Day}-{Time.Month}-{Time.Year}-{Time.Hour}-{Time.Minute}-{Time.Second}.json.macro";
 
-                FileStream _fs = new(path, FileMode.CreateNew);
-                _fs.Close();
+                if (FileInfo == null)
+                {
+                    FileStream _fs = new(path, FileMode.CreateNew);
+                    _fs.Close();
 
-                StreamWriter _sw = new(path);
-                try
-                {
-                    _sw.WriteAsync(content);
+                    StreamWriter _sw = new(path);
+                    try
+                    {
+                        _sw.WriteAsync(content);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Failed To Save File!");
+                        Console.ReadLine();
+                    }
+                    finally
+                    {
+                        _sw.Close();
+                    }
                 }
-                catch
+                else
                 {
-                    Console.WriteLine("Failed To Save File!");
-                    Console.ReadLine();
-                }
-                finally
-                {
-                    _sw.Close();
+                    StreamWriter _sw = new(_fI.FullName);
+                    try
+                    {
+                        _sw.WriteAsync(content);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Failed To Save File!");
+                        Console.ReadLine();
+                    }
+                    finally
+                    {
+                        _sw.Close();
+                    }
                 }
             }catch (Exception ex)
             {
@@ -156,7 +182,8 @@ namespace MicroFileType.FileType
 
         private IndividualMacro ProcessEditWindowInput(string input, IndividualMacro m)
         {
-            switch(input.ToLower())
+            SaveFile(true, "", null);
+            switch (input.ToLower())
             {
                 case "1":
                     Console.Clear();
