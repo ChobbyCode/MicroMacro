@@ -53,6 +53,10 @@ namespace MicroMacro.Menu
                     MicroFileType.FileType.CreateMacro _cM = new MicroFileType.FileType.CreateMacro();
                     _cM.OpenCreateMacroWindow();
                     return Menu.SmartMacroHome;
+                case "2":
+                    MicroFileType.FileType.OpenMacro _oM = new MicroFileType.FileType.OpenMacro();
+                    _oM.OpenOpenMacroWindow();
+                    return Menu.SmartMacroHome;
                 default:
                     return Menu.Home;
             }
