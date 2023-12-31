@@ -26,6 +26,7 @@ namespace MicroFileType.FileType
         {
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
             if (!Directory.Exists(baseDir + @"\Macros\")) Directory.CreateDirectory(baseDir + @"\Macros\");
+            if (!Directory.Exists(baseDir + @"\Macros\tmp\")) Directory.CreateDirectory(baseDir + @"\Macros\tmp\");
 
             bool exit = false;
             while(!exit)
@@ -35,11 +36,35 @@ namespace MicroFileType.FileType
                 if (input.ToLower() == "x") exit = true;
                 ProcessInput(input);
             }
-            // Save
-            SaveFile();
+
+            Exit();
         }
 
-        private void SaveFile()
+        private void Exit()
+        {
+            bool valid = false;
+
+            while (!valid)
+            {
+                Console.Clear();
+                Console.Write("Would you like to save this file? (y/n): ");
+                string input = Console.ReadLine();
+                if (input.ToLower() == "y")
+                {
+                    Console.Clear();
+                    Console.Write("What would you like to call the macro?: ");
+                    input = Console.ReadLine();
+                    SaveFile(false, input);
+                    valid = true;
+                } else if (input.ToLower() == "n")
+                {
+                    SaveFile(true, "");
+                    valid = true;
+                }
+            }
+        }
+
+        private void SaveFile(bool temp, string name)
         {
             try
             {
@@ -50,7 +75,8 @@ namespace MicroFileType.FileType
 
                 DateTime Time = DateTime.Now;
 
-                string path = @$"{baseDir}\Macros\{Time.Day}-{Time.Month}-{Time.Year}-{Time.Hour}-{Time.Minute}-{Time.Second}.json.macro";
+                string path = @$"{baseDir}\Macros\{name}.json.macro";
+                if(temp) path = @$"{baseDir}\Macros\tmp\{Time.Day}-{Time.Month}-{Time.Year}-{Time.Hour}-{Time.Minute}-{Time.Second}.json.macro";
 
                 FileStream _fs = new(path, FileMode.CreateNew);
                 _fs.Close();
