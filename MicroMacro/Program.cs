@@ -19,7 +19,7 @@ namespace MicroMacroConsole
         public static Menu Menu = 0;
         public static string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
 
-        public static string Version = "v1.2.0 Beta 4";
+        public static string Version = "v1.2.0 Beta 5";
         public static bool isBeta = true;
 
         public static void Main(string[] args)
