@@ -20,7 +20,7 @@ namespace MicroMacro.Menu
             {
                 case 0:
                     Console.WriteLine($"MicroMacro {Program.Version} based on https://github.com/ChobbyCode/MacroCreator");
-                    Console.WriteLine("Copyright (c) 2023 ChobbyCode");
+                    Console.WriteLine("Copyright (c) 2023-2024 ChobbyCode");
                     Console.WriteLine();
                     Console.WriteLine("---Macros---");
                     Console.WriteLine();
@@ -74,7 +74,7 @@ namespace MicroMacro.Menu
                     Console.WriteLine("- Dedicated Installer");
                     Console.WriteLine("");
                     Console.WriteLine("Credits: Programming: ChobbyCode, Testing: Ahmed-Boe");
-                    Console.WriteLine("Copyright (c) 2023 ChobbyCode");
+                    Console.WriteLine("Copyright (c) 2023-2024 ChobbyCode");
                     Console.WriteLine("");
                     break;
                 case Menu.SettingsMSG:
