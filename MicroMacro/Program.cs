@@ -25,7 +25,7 @@ namespace MicroMacroConsole
         public static void Main(string[] args)
         {
             
-            Console.Title = $"MicroMacro {Version} | Copyright (c) 2023 ChobbyCode";
+            Console.Title = $"MicroMacro {Version} | Copyright (c) 2024 ChobbyCode";
 
             SettingsManager settingsManager = new SettingsManager();
 
