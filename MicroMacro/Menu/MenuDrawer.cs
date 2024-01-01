@@ -55,27 +55,21 @@ namespace MicroMacro.Menu
                     Sender.SendMultiString(text, repeat);
                     break;
                 case Menu.Changelog:
-                    Console.WriteLine("");
-                    Console.WriteLine("---Changelog for v1.1.2---");
-                    Console.WriteLine("");
-                    Console.WriteLine("- The application can update on its own");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("---Changelog for v1.1.1---");
-                    Console.WriteLine("");
-                    Console.WriteLine("- Settings Button Opens The Settings File");
-                    Console.WriteLine("");
-                    Console.WriteLine("");
-                    Console.WriteLine("---Changelog for v1.1.0---");
-                    Console.WriteLine("");
-                    Console.WriteLine("- Ported Application from MacroCreator v1.0.0 (archieved)");
-                    Console.WriteLine("- Legacy Features appear as red");
-                    Console.WriteLine("- Settings");
-                    Console.WriteLine("- Dedicated Installer");
-                    Console.WriteLine("");
-                    Console.WriteLine("Credits: Programming: ChobbyCode, Testing: Ahmed-Boe");
-                    Console.WriteLine("Copyright (c) 2023-2024 ChobbyCode");
-                    Console.WriteLine("");
+                    string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                    try
+                    {
+                        string[] Changelog = File.ReadAllLines($@"{baseDir}\CHANGELOG.log");
+                        foreach(string l in Changelog)
+                        {
+                            Console.WriteLine($"{l}");
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Failed to open changelog. You can open it here -> ");
+                        Console.WriteLine();
+                    }
                     break;
                 case Menu.SettingsMSG:
                     Console.WriteLine("Please Restart The Application After Modifying The Settings File, For Changes To Take Place.");
@@ -87,9 +81,7 @@ namespace MicroMacro.Menu
                     Console.WriteLine("(1) - Create New Smart Macro");
                     Console.WriteLine("(2) - Run Smart Macro");
                     Console.WriteLine();
-                    break;
-                case Menu.SmartMacroCreate:
-                    
+                    Console.WriteLine("(x) - Return");
                     break;
             }
         }

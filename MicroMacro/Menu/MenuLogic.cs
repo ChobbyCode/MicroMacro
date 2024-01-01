@@ -57,8 +57,10 @@ namespace MicroMacro.Menu
                     MicroFileType.FileType.OpenMacro _oM = new MicroFileType.FileType.OpenMacro();
                     _oM.OpenOpenMacroWindow();
                     return Menu.SmartMacroHome;
-                default:
+                case "x":
                     return Menu.Home;
+                default:
+                    return Menu.SmartMacroHome;
             }
         }
     }
