@@ -42,9 +42,10 @@ namespace MicroFileType.FileType
                 string[] Recovery = Directory.GetFiles(baseDir + @"\Macros\tmp\");
 
                 int inputI = Convert.ToInt32(input);
-                if (inputI > Recent.Length + Recovery.Length) return false;
-                if (inputI > Recent.Length) RecoverySelect(inputI - Recent.Length + 1);
-                if (inputI < Recent.Length + 1) RecentSelect(inputI - Recovery.Length + 1);
+                //if (inputI > Recent.Length + Recovery.Length) return false;
+                //if (inputI > Recent.Length) RecoverySelect(inputI - Recent.Length + 1);
+                //if (inputI < Recent.Length + 1) RecentSelect(inputI - Recovery.Length + 1);
+                RecentSelect(inputI - 1); // -1 because of how arrays work
 
                 return false;
             }catch (Exception ex)
@@ -141,7 +142,7 @@ namespace MicroFileType.FileType
                     for (int i = 0; i < Recovery.Length; i++)
                     {
                         FileInfo _fI = new FileInfo(Recovery[i]);
-                        Console.WriteLine($"({i + h + 1}) - {_fI.Name}");
+                        Console.WriteLine($"(Unavailable) - {_fI.Name}");
                     }
                 }
                 else
