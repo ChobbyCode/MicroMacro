@@ -84,7 +84,7 @@ namespace MicroFileType.FileType
                 string path = @$"{baseDir}\Macros\{name}.json.macro";
                 if(temp) path = @$"{baseDir}\Macros\tmp\{Time.Day}-{Time.Month}-{Time.Year}-{Time.Hour}-{Time.Minute}-{Time.Second}.json.macro";
 
-                if (FileInfo == null)
+                if (FileInfo == null || temp)
                 {
                     FileStream _fs = new(path, FileMode.CreateNew);
                     _fs.Close();
@@ -104,7 +104,7 @@ namespace MicroFileType.FileType
                         _sw.Close();
                     }
                 }
-                else
+                else if(FileInfo != null)
                 {
                     StreamWriter _sw = new(_fI.FullName);
                     try
@@ -120,6 +120,11 @@ namespace MicroFileType.FileType
                     {
                         _sw.Close();
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Something Went Wrong!");
+                    Console.ReadLine();
                 }
             }catch (Exception ex)
             {

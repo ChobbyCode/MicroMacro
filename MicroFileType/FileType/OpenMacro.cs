@@ -13,6 +13,10 @@ namespace MicroFileType.FileType
 
         public void OpenOpenMacroWindow()
         {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            if (!Directory.Exists(baseDir + @"\Macros\")) Directory.CreateDirectory(baseDir + @"\Macros\");
+            if (!Directory.Exists(baseDir + @"\Macros\tmp\")) Directory.CreateDirectory(baseDir + @"\Macros\tmp\");
+
             bool valid = false;
             while (!valid)
             {
@@ -39,13 +43,14 @@ namespace MicroFileType.FileType
 
                 int inputI = Convert.ToInt32(input);
                 if (inputI > Recent.Length + Recovery.Length) return false;
-                if (inputI > Recent.Length) RecoverySelect(inputI - Recent.Length);
-                if (inputI < Recent.Length + 1) RecentSelect(inputI - Recovery.Length);
+                if (inputI > Recent.Length) RecoverySelect(inputI - Recent.Length + 1);
+                if (inputI < Recent.Length + 1) RecentSelect(inputI - Recovery.Length + 1);
 
                 return false;
             }catch (Exception ex)
             {
                 Console.WriteLine("Invalid Input:");
+                Console.WriteLine(ex);
                 return false;
             }
         }
@@ -79,6 +84,10 @@ namespace MicroFileType.FileType
                 if(option == "1" || option == "2" || option == "x") valid = true;
             }
             if (option == "x") return;
+            if(option == "1")
+            {
+                RunMacro _rM = new RunMacro(MFT);
+            }
             if (option == "2")
             {
                 CreateMacro _cM = new CreateMacro(MFT, _fI);
