@@ -67,7 +67,7 @@ namespace MicroMacro.Menu
                     catch
                     {
                         Console.WriteLine();
-                        Console.WriteLine("Failed to open changelog. You can open it here -> ");
+                        Console.WriteLine("Failed to open changelog. You can open it here -> 'https://github.com/ChobbyCode/MicroMacro/blob/master/MicroMacro/CHANGELOG.txt'");
                         Console.WriteLine();
                     }
                     break;
