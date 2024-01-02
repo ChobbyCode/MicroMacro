@@ -1,5 +1,7 @@
 ﻿
 
+using MicroMacro.Sdk.Menu;
+
 namespace MicroMacro.Sdk
 {
     /// <summary>
@@ -21,11 +23,16 @@ namespace MicroMacro.Sdk
         /// This is called when the application starts up
         /// </summary>
         /// <param name="args">List of arguments that it starts with</param>
-        void OnStart(string[] args);
+        void OnStart(string[]? args);
 
         /// <summary>
         /// This is called when the application is closed
         /// </summary>
         void OnTerminate();
+
+        /// <summary>
+        /// This is used when the user will view information on the Plugin
+        /// </summary>
+        IPluginMenu PluginHelpPage { get; }
     }
 }
