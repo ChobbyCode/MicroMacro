@@ -19,7 +19,7 @@ namespace MicroMacro.Menu
             switch(Menu)
             {
                 case 0:
-                    Console.WriteLine($"MicroMacro {Program.Version} based on https://github.com/ChobbyCode/MacroCreator");
+                    Console.WriteLine($"MicroMacro {Program.Version}");
                     Console.WriteLine("Copyright (c) 2023-2024 ChobbyCode");
                     Console.WriteLine();
                     Console.WriteLine("---Macros---");
