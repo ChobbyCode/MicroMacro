@@ -11,6 +11,8 @@ using Microsoft.Win32;
 using System.Reflection;
 using MicroFileType.FileType;
 using Newtonsoft.Json;
+using MicroMacro.Sdk;
+using Windows.Foundation.Collections;
 
 namespace MicroMacroConsole
 {
@@ -20,11 +22,23 @@ namespace MicroMacroConsole
         public static string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
 
         public static string Version = "v1.2.0";
-        public static bool isBeta = true;
+        public static bool isBeta = false;
 
         public static void Main(string[] args)
         {
-            
+            Console.WriteLine("Reading Plugins...");
+            _plugins = ReadExtensions();
+
+            // Print
+            foreach(var plugin in _plugins)
+            {
+                Console.WriteLine($"{plugin.Title} | {plugin.Description}");
+            }
+            foreach (var plugin in _plugins)
+            {
+                plugin.DoSomething();
+            }
+
             Console.Title = $"MicroMacro {Version} | Copyright (c) 2023-2024 ChobbyCode";
 
             SettingsManager settingsManager = new SettingsManager();
@@ -36,6 +50,8 @@ namespace MicroMacroConsole
                 Updator _uD = new Updator();
                 update = _uD.CheckForUpdates();
             }
+
+            Console.ReadLine();
 
             if (!update) MainRenderLoop();
             else
@@ -60,20 +76,6 @@ namespace MicroMacroConsole
             }
         }
 
-        public static void AddAsSuggestedApp()
-        {
-            // Adds as a suggested popup for the .macro extension when people click on open with for .macro
-            var Key = Registry.ClassesRoot.OpenSubKey(".macro");
-            var Type = Key.GetValue("");
-            String myExecutable = Assembly.GetEntryAssembly().Location;
-            String command = "\"" + myExecutable + "\"" + " \"%1\"";
-            String keyName = Type + @"\shell\Open\command";
-            using (var key = Registry.ClassesRoot.CreateSubKey(keyName))
-            {
-                key.SetValue("", command);
-            }
-        }
-
         public static void MainRenderLoop()
         {
             while (Menu != Menu.ExitApplication)
@@ -84,6 +86,38 @@ namespace MicroMacroConsole
                 var input = Console.ReadLine();
                 Menu = MenuLogic.GetNewMenu(Menu, input);
             }
+        }
+
+        static List<IPlugin> _plugins = null;
+
+        static List<IPlugin> ReadExtensions()
+        {
+            var pluginsList = new List<IPlugin>();
+
+            // i- read dll files from the extension folder
+            var files = Directory.GetFiles("Plugins", "*.dll");
+            foreach (var file in files)
+            {
+                Console.WriteLine(file);
+            }
+
+            // ii- read assemblies from those files
+            foreach(var file in files)
+            {
+                var assembly = Assembly.LoadFile(Path.Combine(Directory.GetCurrentDirectory(), file));
+
+                // iii- extract classes types that implement iplugin
+                var pluginTypes = assembly.GetTypes().Where(t => typeof(IPlugin).IsAssignableFrom(t)).ToArray();
+
+                foreach(var pluginType in pluginTypes)
+                {
+                    // iv - create instance from the extracted type
+                    var pluginInstance = Activator.CreateInstance(pluginType) as IPlugin;
+                    pluginsList.Add(pluginInstance);
+                }
+            }
+
+            return pluginsList;
         }
     }
 }

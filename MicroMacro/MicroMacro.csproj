@@ -21,6 +21,7 @@
     <ProjectReference Include="..\KeySender\KeySender.csproj" />
     <ProjectReference Include="..\MicroFileType\MicroFileType.csproj" />
     <ProjectReference Include="..\MicroFileWriter\MicroFileWriter.csproj" />
+    <ProjectReference Include="..\MicroMacro.Sdk\MicroMacro.Sdk.csproj" />
     <ProjectReference Include="..\MicroUpdatorClient\MicroUpdatorClient.csproj" />
   </ItemGroup>
 

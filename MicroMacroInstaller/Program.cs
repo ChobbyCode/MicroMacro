@@ -9,7 +9,7 @@ namespace MicroMacro.Installer
     public class Program
     {
 
-        public static bool isBeta = true;
+        public static bool isBeta = false;
 
         public static void Main(string[] args)
         {
