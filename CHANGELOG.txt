@@ -1,0 +1,28 @@
+﻿
+---Changelog for v1.2.0---
+                     
+- Smart Macros 
+- API Changes 
+- Installer Changes 
+- General Bug Fixes 
+                     
+                     
+---Changelog for v1.1.2--- 
+                     
+- The application can update on its own 
+                     
+                     
+---Changelog for v1.1.1--- 
+                     
+- Settings Button Opens The Settings File 
+                     
+                     
+---Changelog for v1.1.0--- 
+                     
+- Ported Application from MacroCreator v1.0.0 (archieved) 
+- Legacy Features appear as red 
+- Settings
+- Dedicated Installer
+
+Credits: Programming: ChobbyCode, Testing: Ahmed-Boe
+Copyright (c) 2023-2024 ChobbyCode

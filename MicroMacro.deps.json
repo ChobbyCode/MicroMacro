@@ -9,6 +9,7 @@
       "MicroMacro/1.0.0": {
         "dependencies": {
           "KeySender": "1.0.0",
+          "MicroFileType": "1.0.0",
           "MicroFileWriter": "1.0.0",
           "MicroUpdatorClient": "1.0.0",
           "Update_Checker": "0.3.0-SR2",
@@ -67,6 +68,15 @@
           "KeySender.dll": {}
         }
       },
+      "MicroFileType/1.0.0": {
+        "dependencies": {
+          "KeySender": "1.0.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "MicroFileType.dll": {}
+        }
+      },
       "MicroFileWriter/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.3"
@@ -118,6 +128,11 @@
       "hashPath": "update_checker.0.3.0-sr2.nupkg.sha512"
     },
     "KeySender/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MicroFileType/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
