@@ -1,4 +1,4 @@
-### _*MicroMacro v1.1.2*_
+### _*MicroMacro v1.2.0*_
 
 With MicroMacro, you can automate tasks easily and quickly. Create text macros which can easily input text.
 
