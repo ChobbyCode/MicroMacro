@@ -35,21 +35,42 @@ namespace KeySender
             }
         }
 
+        public void SendString(string text, int randVal)
+        {
+            var rand = new Random();
+            
+            try
+            {
+                // Just loops through the text to send key
+                foreach (char c in text)
+                { 
+                    SendKey(c);
+                    Thread.Sleep(rand.Next(50, 100) * randVal);
+                }
+            }
+            catch
+            {
+                Console.WriteLine($"Failed to send string - {text} -");
+            }
+        }
+
         public void SendString(string text)
         {
             try
             {
                 // Just loops through the text to send key
-                foreach(char c in text)
+                foreach (char c in text)
                 {
                     SendKey(c);
                     Thread.Sleep(50);
                 }
-            }catch
+            }
+            catch
             {
                 Console.WriteLine($"Failed to send string - {text} -");
             }
         }
+
         public void SendMultiString(string text, int repeat)
         {
             try
@@ -66,6 +87,29 @@ namespace KeySender
             {
                 Console.WriteLine($"Failed to send string - {text} -");
             }
+        }
+        public void SendSpecial(Special special)
+        {
+            isim = new InputSimulator();
+
+            switch (special)
+            {
+                case Special.Enter:
+                    isim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                    break;
+                case Special.Tab:
+                    isim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                    break;
+                case Special.Space:
+                    isim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.SPACE);
+                    break;
+            }
+        }
+        public enum Special
+        {
+            Enter,
+            Tab,
+            Space,
         }
     }
 }

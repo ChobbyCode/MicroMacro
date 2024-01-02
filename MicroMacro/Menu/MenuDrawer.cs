@@ -58,7 +58,7 @@ namespace MicroMacro.Menu
                     string baseDir = AppDomain.CurrentDomain.BaseDirectory;
                     try
                     {
-                        string[] Changelog = File.ReadAllLines($@"{baseDir}\CHANGELOG.log");
+                        string[] Changelog = File.ReadAllLines($@"{baseDir}\CHANGELOG.txt");
                         foreach(string l in Changelog)
                         {
                             Console.WriteLine($"{l}");

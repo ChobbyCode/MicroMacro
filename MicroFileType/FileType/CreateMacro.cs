@@ -250,7 +250,14 @@ namespace MicroFileType.FileType
             Console.WriteLine($"(6) - Escape String: {m.EscapeString}");
 
             Console.WriteLine();
+            Console.WriteLine("---Help---");
+            Console.WriteLine();
+            Console.WriteLine($"Values must be whole integers. No 1.3 or 256.7, only 1 or 256 etc... | Macro will not run otherwise.");
+            Console.WriteLine($"Report any bugs to https://github.com/ChobbyCode/MicroMacro/issues");
+
+            Console.WriteLine();
             Console.WriteLine($"(x) - Return");
+            Console.WriteLine();
         }
     }
 }
