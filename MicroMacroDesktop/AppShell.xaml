@@ -5,10 +5,33 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MicroMacroDesktop"
     Shell.FlyoutBehavior="Disabled"
-    Title="MicroMacroDesktop">
+    Title=""
+    NavigationPage.HasNavigationBar="False">
+
+    <Shell.MenuBarItems>
+        <MenuBarItem Text="File">
+                <MenuFlyoutSubItem Text="New">
+                    <MenuFlyoutItem Text="Quick Macro"/>
+                    <MenuFlyoutItem Text="Smart Macro"/>
+                </MenuFlyoutSubItem>
+                <MenuFlyoutItem Text="Open"/>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Save"/>
+                <MenuFlyoutSubItem Text="Save as">
+                    <MenuFlyoutItem Text=".macro"/>
+                    <MenuFlyoutItem Text=".micmac"/>
+                </MenuFlyoutSubItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Exit"/>
+            </MenuBarItem>
+            <MenuBarItem Text="Edit" />
+            <MenuBarItem Text="Plugins" />
+        <MenuBarItem Text="Help" />
+    </Shell.MenuBarItems>
+
 
     <ShellContent
-        Title="Home"
+        Title=""
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

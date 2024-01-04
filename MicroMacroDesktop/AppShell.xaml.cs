@@ -1,10 +1,13 @@
-﻿namespace MicroMacroDesktop
+﻿using MicroMacroDesktop.Content.Macros;
+
+namespace MicroMacroDesktop;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        Routing.RegisterRoute(nameof(QuickMacro), typeof(QuickMacro));
     }
 }
