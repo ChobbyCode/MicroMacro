@@ -26,6 +26,19 @@ namespace MicroMacroConsole
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Reading Plugins...");
+            _plugins = ReadExtensions();
+
+            // Print
+            foreach (var plugin in _plugins)
+            {
+                Console.WriteLine($"{plugin.Title} | {plugin.Description}");
+            }
+            foreach (var plugin in _plugins)
+            {
+                plugin.OnStart(new string[0]);
+            }
+
             Plugins.InitPlugins();
 
             Console.Title = $"MicroMacro {Version} | Copyright (c) 2023-2024 ChobbyCode";
@@ -73,6 +86,38 @@ namespace MicroMacroConsole
                 var input = Console.ReadLine();
                 Menu = MenuLogic.GetNewMenu(Menu, input);
             }
+        }
+
+        static List<IPlugin> _plugins = null;
+
+        static List<IPlugin> ReadExtensions()
+        {
+            var pluginsList = new List<IPlugin>();
+
+            // i- read dll files from the extension folder
+            var files = Directory.GetFiles("Plugins", "*.dll");
+            foreach (var file in files)
+            {
+                Console.WriteLine(file);
+            }
+
+            // ii- read assemblies from those files
+            foreach (var file in files)
+            {
+                var assembly = Assembly.LoadFile(Path.Combine(Directory.GetCurrentDirectory(), file));
+
+                // iii- extract classes types that implement iplugin
+                var pluginTypes = assembly.GetTypes().Where(t => typeof(IPlugin).IsAssignableFrom(t)).ToArray();
+
+                foreach (var pluginType in pluginTypes)
+                {
+                    // iv - create instance from the extracted type
+                    var pluginInstance = Activator.CreateInstance(pluginType) as IPlugin;
+                    pluginsList.Add(pluginInstance);
+                }
+            }
+
+            return pluginsList;
         }
     }
 }

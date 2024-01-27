@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MicroMacroDesktop.Content.Macros.QuickMacro">
     <VerticalStackLayout>
-        
+        <Label
+    Text="{Binding bob}"
+    Style="{StaticResource Headline}"
+    SemanticProperties.HeadingLevel="Level1" />
     </VerticalStackLayout>
 </ContentPage>
