@@ -41,7 +41,7 @@ namespace MicroMacroConsole
 
             Plugins.InitPlugins();
 
-            Console.Title = $"MicroMacro {Version} | Copyright (c) 2023-2024 ChobbyCode";
+            Console.Title = $"MicroMacro {Version} | Copyright (c) 2023-2025 ChobbyCode";
 
             SettingsManager settingsManager = new SettingsManager();
 
