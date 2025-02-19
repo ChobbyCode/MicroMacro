@@ -11,23 +11,24 @@
           "KeySender": "1.0.0",
           "MicroFileType": "1.0.0",
           "MicroFileWriter": "1.0.0",
+          "MicroMacro.Sdk": "1.0.0",
           "MicroUpdatorClient": "1.0.0",
           "Update_Checker": "0.3.0-SR2",
-          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.17763.31"
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.17763.43"
         },
         "runtime": {
           "MicroMacro.dll": {}
         }
       },
-      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.17763.31": {
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.17763.43": {
         "runtime": {
           "Microsoft.Windows.SDK.NET.dll": {
-            "assemblyVersion": "10.0.17763.24",
-            "fileVersion": "10.0.17763.31"
+            "assemblyVersion": "10.0.17763.38",
+            "fileVersion": "10.0.17763.43"
           },
           "WinRT.Runtime.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.4.44211"
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.2.47512"
           }
         }
       },
@@ -65,7 +66,10 @@
           "Update_Checker": "0.3.0-SR2"
         },
         "runtime": {
-          "KeySender.dll": {}
+          "KeySender.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "MicroFileType/1.0.0": {
@@ -74,7 +78,10 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "MicroFileType.dll": {}
+          "MicroFileType.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "MicroFileWriter/1.0.0": {
@@ -82,7 +89,18 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "MicroFileWriter.dll": {}
+          "MicroFileWriter.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MicroMacro.Sdk/1.0.0": {
+        "runtime": {
+          "MicroMacro.Sdk.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "MicroUpdatorClient/1.0.0": {
@@ -90,7 +108,10 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "MicroUpdatorClient.dll": {}
+          "MicroUpdatorClient.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -101,7 +122,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.17763.31": {
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.17763.43": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""
@@ -138,6 +159,11 @@
       "sha512": ""
     },
     "MicroFileWriter/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MicroMacro.Sdk/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
