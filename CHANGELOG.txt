@@ -8,11 +8,13 @@
 - Updated Copyright
 - Added Instructions
 - Menus No Longer Require Users To Press Enter
+- Randomness Features Disabled On Smart Macro
 
 Bug Fixes:
 
 - Added Missing Repeat Option To Smart Macro
 - MicroMacroDesktop No Longer Bundled With Main App
+- Randomness Features Disabled On Smart Macro / Smart Macro Works XD
 
 ---Changelog for v1.2.0---
                      
