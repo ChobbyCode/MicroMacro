@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace MicroMacro
 {
-    public class Plugins
+    public class PluginManager
     {
         public static void InitPlugins()
         {

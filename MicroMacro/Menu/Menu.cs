@@ -13,13 +13,14 @@ namespace MicroMacro.Menu
         Home = 0,
         ExitApplication = 1,
         QuickMacro = 2,
-        Changelog = 3,
-        SettingsMSG = 4,
+        HelpLog = 3,
+        Changelog = 4,
+        SettingsMSG = 5,
 
         // Smart Macro
 
-        SmartMacroHome = 5,
-        SmartMacroCreate = 6,
-        SmartMacroRun = 7,
+        SmartMacroHome = 6,
+        SmartMacroCreate = 7,
+        SmartMacroRun = 8,
     }
 }

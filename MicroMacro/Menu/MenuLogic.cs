@@ -11,15 +11,15 @@ namespace MicroMacro.Menu
 {
     public class MenuLogic
     {
-        public static Menu GetNewMenu(Menu menu, string? input)
+        public static Menu GetNewMenu(Menu menu, ConsoleKeyInfo? input)
         {
             if (input == null) return Menu.Home;
             switch (menu)
             {
                 case Menu.Home:
-                    return HomeMenuLogic(input);
+                    return HomeMenuLogic(input.Value.KeyChar.ToString());
                 case Menu.SmartMacroHome:
-                    return SmartMacroMenuLogic(input);
+                    return SmartMacroMenuLogic(input.Value.KeyChar.ToString());
                 default:
                     return Menu.Home;
             }
@@ -36,9 +36,11 @@ namespace MicroMacro.Menu
                 case "2":
                     return Menu.SmartMacroHome;
                 case "5":
+                    return Menu.HelpLog;
+                case "6":
                     Process.Start("notepad.exe", $"{MicroFileWriter.Settings.SettingsManager.SettingsLocation}");
                     return Menu.SettingsMSG;
-                case "6":
+                case "7":
                     return Menu.Changelog;
                 default:
                     return Menu.Home;

@@ -1,10 +1,5 @@
 ﻿// Copyright (c) 2024 ChobbyCode
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+// Last Edit: 19/02/25 ChobbyCode
 
 namespace MicroFileWriter.Settings.Models
 {
@@ -12,5 +7,7 @@ namespace MicroFileWriter.Settings.Models
     {
         public bool LiteMode { get; set; } = false;
         public bool MacroAutoEnter { get; set; } = true;
+        public bool UseExperimentalFeatures { get; set; } = false;
+        public bool UsePlugins { get; set; } = false;
     }
 }

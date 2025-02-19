@@ -16,11 +16,13 @@ namespace MicroMacro.Menu
     {
         public static void DrawMenu(Menu Menu)
         {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+
             switch(Menu)
             {
                 case 0:
                     Console.WriteLine($"MicroMacro {Program.Version}");
-                    Console.WriteLine("Copyright (c) 2023-2024 ChobbyCode");
+                    Console.WriteLine("Copyright (c) 2023-2025 ChobbyCode");
                     Console.WriteLine();
                     Console.WriteLine("---Macros---");
                     Console.WriteLine();
@@ -29,8 +31,9 @@ namespace MicroMacro.Menu
                     Console.WriteLine();
                     Console.WriteLine("---Settings & Other---");
                     Console.WriteLine();
-                    Console.WriteLine("(5) - Settings");
-                    Console.WriteLine("(6) - Changelog");
+                    Console.WriteLine("(5) - Help");
+                    Console.WriteLine("(6) - Settings");
+                    Console.WriteLine("(7) - Changelog");
                     Console.WriteLine("(x) - Exit");
                     Console.WriteLine();
                     break;
@@ -54,8 +57,20 @@ namespace MicroMacro.Menu
                     Sender Sender = new Sender();
                     Sender.SendMultiString(text, repeat);
                     break;
+                case Menu.HelpLog:
+                    try {
+                        string[] Changelog = File.ReadAllLines($@"{baseDir}\INSTRUCTIONS.txt");
+                        foreach (string l in Changelog) {
+                            Console.WriteLine($"{l}");
+                        }
+                    }
+                    catch {
+                        Console.WriteLine();
+                        Console.WriteLine("Failed to open HelpLog. You can open it here -> 'https://github.com/ChobbyCode/MicroMacro/blob/master/MicroMacro/INSTRUCTIONS.txt'");
+                        Console.WriteLine();
+                    }
+                    break;
                 case Menu.Changelog:
-                    string baseDir = AppDomain.CurrentDomain.BaseDirectory;
                     try
                     {
                         string[] Changelog = File.ReadAllLines($@"{baseDir}\CHANGELOG.txt");

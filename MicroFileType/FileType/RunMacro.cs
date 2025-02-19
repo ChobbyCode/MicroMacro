@@ -18,26 +18,29 @@ namespace MicroFileType.FileType
         {
             foreach (var Macro in MFT.Macros)
             {
-                // Random Setup
-                var rand = new Random();
-                int val = rand.Next(10, 100) * Convert.ToInt32(Macro.Randomness);
+                for (int i = 0; i < Macro.MacroRepeat; i++) {
+                    // Random Setup
+                    var rand = new Random();
+                    int val = rand.Next(10, 100) * Convert.ToInt32(Macro.Randomness);
 
-                // Enter String
-                EscapeCharacter(Macro.EnterString);
+                    // Enter String
+                    EscapeCharacter(Macro.EnterString);
 
-                // Start Delay
-                Thread.Sleep(Convert.ToInt32(Macro.StartDelay) * val);
+                    // Start Delay
+                    Thread.Sleep(Convert.ToInt32(Macro.StartDelay) * val);
 
-                KeySender.Sender sender = new KeySender.Sender();
-                sender.SendString(Macro.MacroText, Convert.ToInt32(Macro.Randomness));
+                    KeySender.Sender sender = new KeySender.Sender();
+                    // Usually has randomness overload but causes error, must work out why
+                    sender.SendString(Macro.MacroText);
 
-                // Escape String
-                EscapeCharacter(Macro.EscapeString);
+                    // Escape String
+                    EscapeCharacter(Macro.EscapeString);
 
-                // Re-random random
-                val = rand.Next(10, 100) * Convert.ToInt32(Macro.Randomness);
-                // End Delay
-                Thread.Sleep(Convert.ToInt32(Macro.EndDelay) * val);
+                    // Re-random random
+                    val = rand.Next(10, 100) * Convert.ToInt32(Macro.Randomness);
+                    // End Delay
+                    Thread.Sleep(Convert.ToInt32(Macro.EndDelay) * val);
+                }
             }
         }
 

@@ -21,43 +21,36 @@ namespace MicroMacroConsole
         public static Menu Menu = 0;
         public static string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
 
-        public static string Version = "v1.2.0";
+        public static string Version = "v1.3.0";
         public static bool isBeta = false;
 
+        // plugins -- Disabled on start by default due to security reasons
         public static void Main(string[] args)
         {
-            Console.WriteLine("Reading Plugins...");
-            _plugins = ReadExtensions();
+            // Load Settings Stuff
+            SettingsManager settingsManager = new SettingsManager();
 
-            // Print
-            foreach (var plugin in _plugins)
-            {
-                Console.WriteLine($"{plugin.Title} | {plugin.Description}");
-            }
-            foreach (var plugin in _plugins)
-            {
-                plugin.OnStart(new string[0]);
-            }
-
-            Plugins.InitPlugins();
+            // Begin To Load Plugins. Plugins Should Only Be Loaded If Experimental Features & Plugins Are Enabled In The Settings
+            // And The Version Is Set To Being A Beta
+            if(SettingsManager.Settings.UseExperimentalFeatures == true && SettingsManager.Settings.UsePlugins == true && isBeta == true) PluginManager.InitPlugins();
 
             Console.Title = $"MicroMacro {Version} | Copyright (c) 2023-2025 ChobbyCode";
 
-            SettingsManager settingsManager = new SettingsManager();
+            UpdateCheck();
+        }
 
+        // Checks For Update, If Not Push To Main Render Loop
+        private static void UpdateCheck() {
             bool update = false;
-            if (!isBeta)
-            {
+            if (!isBeta) {
                 Console.WriteLine("Checking for updates...");
                 Updator _uD = new Updator();
                 update = _uD.CheckForUpdates();
             }
 
             if (!update) MainRenderLoop();
-            else
-            {
-                try
-                {
+            else {
+                try {
                     string[] UdArgs =
                     {
                     "true",
@@ -65,8 +58,7 @@ namespace MicroMacroConsole
                 };
                     Process.Start(BaseDir + @"\Updator.exe", UdArgs);
                 }
-                catch
-                {
+                catch {
                     Console.WriteLine("");
                     Console.WriteLine("Failed to start updater..");
                     Console.WriteLine("Please manually download the update from: ");
@@ -83,41 +75,10 @@ namespace MicroMacroConsole
                 Console.Clear();
                 MenuDrawer.DrawMenu(Menu);
 
-                var input = Console.ReadLine();
+                var input = Console.ReadKey();
                 Menu = MenuLogic.GetNewMenu(Menu, input);
             }
         }
 
-        static List<IPlugin> _plugins = null;
-
-        static List<IPlugin> ReadExtensions()
-        {
-            var pluginsList = new List<IPlugin>();
-
-            // i- read dll files from the extension folder
-            var files = Directory.GetFiles("Plugins", "*.dll");
-            foreach (var file in files)
-            {
-                Console.WriteLine(file);
-            }
-
-            // ii- read assemblies from those files
-            foreach (var file in files)
-            {
-                var assembly = Assembly.LoadFile(Path.Combine(Directory.GetCurrentDirectory(), file));
-
-                // iii- extract classes types that implement iplugin
-                var pluginTypes = assembly.GetTypes().Where(t => typeof(IPlugin).IsAssignableFrom(t)).ToArray();
-
-                foreach (var pluginType in pluginTypes)
-                {
-                    // iv - create instance from the extracted type
-                    var pluginInstance = Activator.CreateInstance(pluginType) as IPlugin;
-                    pluginsList.Add(pluginInstance);
-                }
-            }
-
-            return pluginsList;
-        }
     }
 }

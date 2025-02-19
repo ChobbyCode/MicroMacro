@@ -1,4 +1,21 @@
 ﻿
+---Changelog for v1.3.0---
+
+- Plugin Changes:
+    Plugins now only load if Experimental Features & UsePlugins is enabled in the settings, and the branch of the app must be beta.
+    Plugins pose security concerns.
+    Added "UseExperimentalFeatures" & "UsePlugins" options to setting files
+- Updated Copyright
+- Added Instructions
+- Menus No Longer Require Users To Press Enter
+- Randomness Features Disabled On Smart Macro
+
+Bug Fixes:
+
+- Added Missing Repeat Option To Smart Macro
+- MicroMacroDesktop No Longer Bundled With Main App
+- Randomness Features Disabled On Smart Macro / Smart Macro Works XD
+
 ---Changelog for v1.2.0---
                      
 - Smart Macros 
@@ -24,5 +41,5 @@
 - Settings
 - Dedicated Installer
 
-Credits: Programming: ChobbyCode, Testing: Ahmed-Boe
-Copyright (c) 2023-2024 ChobbyCode
+Credits: Programming: ChobbyCode (2022-Present), Testing: Ahmed-Boe (2023-2024) ChobbyCode (2025-Present)
+Copyright (c) 2023-2025 ChobbyCode

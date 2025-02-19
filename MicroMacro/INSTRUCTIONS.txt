@@ -1,0 +1,21 @@
+=== Instructions ===
+
+Welcome To MicroMacro! We are going to make the instructions quick, so you can get on.
+
+MicroMacro allows you to create short text macros, it does not yet allow you to control the mouse (however this is planned for future versions).
+
+=== How To Use ===
+
+1. Select If You're Going To Use A Quick Macro Or Smart Macro.
+	Smart Macros are new and experimental (but have more options)
+	Quick Macros are short text macros that repeat the same bit of text for a specified amount
+2. If you've chosen quick macro put in your text, and desired amount & off you go
+3. If you've chosen smart macro create a new macro (yes you can have multiple macros in macros)
+	Fill in the fileds as well, it should be simple
+4. Save it!	Then Run It!
+
+=== Navigating Menus ===
+
+Some people may find this difficult but it's simple. On the left of each option is a number, write the number on your keyboard to navigate to that menu.
+
+The menus are based on earlier technology of what RaspberryMenus were based on. I do not recommend RaspberryMenus as it is hardly my best works.

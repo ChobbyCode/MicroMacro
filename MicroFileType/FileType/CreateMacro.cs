@@ -197,25 +197,30 @@ namespace MicroFileType.FileType
                     return m;
                 case "2":
                     Console.Clear();
+                    Console.Write("Repeat: ");
+                    m.MacroRepeat = Convert.ToInt32(Console.ReadLine());
+                    return m;
+                case "3":
+                    Console.Clear();
                     Console.Write("Start Delay: ");
                     m.StartDelay = Console.ReadLine();
                     return m;
-                case "3":
+                case "4":
                     Console.Clear();
                     Console.Write("End Delay: ");
                     m.EndDelay = Console.ReadLine();
                     return m;
-                case "4":
+                case "5":
                     Console.Clear();
                     Console.Write("Random Factor: ");
                     m.Randomness = Console.ReadLine();
                     return m;
-                case "5":
+                case "6":
                     Console.Clear();
                     Console.Write("Enter String: ");
                     m.EnterString = Console.ReadLine();
                     return m;
-                case "6":
+                case "7":
                     Console.Clear();
                     Console.Write("Escape String: ");
                     m.EscapeString = Console.ReadLine();
@@ -233,21 +238,22 @@ namespace MicroFileType.FileType
             Console.WriteLine();
 
             Console.WriteLine($"(1) - Text: {m.MacroText}");
+            Console.WriteLine($"(2) - Repeat: {m.MacroRepeat}");
 
             Console.WriteLine();
             Console.WriteLine("---Delay---");
             Console.WriteLine();
 
-            Console.WriteLine($"(2) - Start Delay: {m.StartDelay}");
-            Console.WriteLine($"(3) - End Delay: {m.EndDelay}");
-            Console.WriteLine($"(4) - Random Factor: {m.Randomness}");
+            Console.WriteLine($"(3) - Start Delay: {m.StartDelay}");
+            Console.WriteLine($"(4) - End Delay: {m.EndDelay}");
+            Console.WriteLine($"(5) - Random Factor: {m.Randomness}");
 
             Console.WriteLine();
             Console.WriteLine("---Escape Characters---");
             Console.WriteLine();
 
-            Console.WriteLine($"(5) - Enter String: {m.EnterString}");
-            Console.WriteLine($"(6) - Escape String: {m.EscapeString}");
+            Console.WriteLine($"(6) - Enter String: {m.EnterString}");
+            Console.WriteLine($"(7) - Escape String: {m.EscapeString}");
 
             Console.WriteLine();
             Console.WriteLine("---Help---");
